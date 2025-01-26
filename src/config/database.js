@@ -6,6 +6,7 @@ const sequelize = new Sequelize({
   username: process.env.DB_USER || 'root',
   password: process.env.DB_PASSWORD || 'root',
   database: process.env.DB_NAME || 'digital_wallet',
+  port:3306,
   logging: false
 });
 

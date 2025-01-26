@@ -8,6 +8,9 @@ jobs:
   web-deploy:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: /home/hfb.digital/
     steps:
     - name: 🚚 Get latest code
       uses: actions/checkout@v4
@@ -23,7 +26,6 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        server-dir: '/home/hfb.digital/'
 
     - name: 🔨 Build Project
       run: |

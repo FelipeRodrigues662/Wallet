@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: /home/hfb.digital/
+        working-directory: "/home/deployftp/"
     steps:
     - name: 🚚 Get latest code
       uses: actions/checkout@v4
@@ -28,9 +28,11 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
 
     - name: 🔨 Build Project
+      working-directory: '/home/deployftp/'
       run: |
         npm install 
 
     - name: Run Project
+      working-directory: '/home/deployftp/'
       run: |
         node server.js

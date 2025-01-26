@@ -28,11 +28,11 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
 
     - name: 🔨 Build Project
-      working-directory: '/home/deployftp/'
       run: |
-        npm install 
+        npm install
+      working-directory: '/home/deployftp/' 
 
     - name: Run Project
-      working-directory: '/home/deployftp/'
       run: |
         node server.js
+      working-directory: '/home/deployftp/'

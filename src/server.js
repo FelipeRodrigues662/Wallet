@@ -3,9 +3,11 @@ const express = require('express');
 const cors = require('cors');
 const swaggerUi = require('swagger-ui-express');
 const swaggerJsdoc = require('swagger-jsdoc');
-const apiRoutes = require('./routes/api');
-const sequelize = require('./config/database');
-const messageQueue = require('./services/messageQueue');
+const apiRoutes = require('./src/routes/api.js');
+const sequelize = require('./src/config/database.js');
+const messageQueue = require('./src/services/messageQueue.js');
+const User = require('./src/models/User.js');
+const Transaction = require('./src/models/Transaction.js');
 
 const app = express();
 

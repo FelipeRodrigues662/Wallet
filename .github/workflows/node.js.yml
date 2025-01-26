@@ -23,14 +23,14 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        server-dir: '/home/hfb.digital/'
+        local-dir: './app/'
 
     - name: 🔨 Build Project
-      working-directory: './deployftp'
+      working-directory: './app/'
       run: |
         npm install 
 
     - name: Run Project
-      working-directory: './deployftp'
+      working-directory: './app/'
       run: |
         node server.js

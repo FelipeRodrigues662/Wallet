@@ -15,13 +15,7 @@ jobs:
     - name: Use Node.js 16
       uses: actions/setup-node@v2
       with:
-        node-version: '16'
-
-      
-    - name: 🔨 Build Project
-      run: |
-        npm install
-    
+        node-version: '20'
 
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
@@ -30,6 +24,10 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         server-dir: '/home/hfb.digital/'
+
+    - name: 🔨 Build Project
+      run: |
+        npm install 
 
     - name: Run Project
       run: |

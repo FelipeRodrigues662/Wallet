@@ -8,14 +8,11 @@ jobs:
   web-deploy:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: "/home/deployftp/"
     steps:
     - name: 🚚 Get latest code
       uses: actions/checkout@v4
 
-    - name: Use Node.js 16
+    - name: Use Node.js 20
       uses: actions/setup-node@v2
       with:
         node-version: '20'
@@ -26,13 +23,14 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
+        server-dir: '/home/hfb.digital/'
 
     - name: 🔨 Build Project
+      working-directory: './deployftp'
       run: |
-        npm install
-      working-directory: '/home/deployftp/' 
+        npm install 
 
     - name: Run Project
+      working-directory: './deployftp'
       run: |
         node server.js
-      working-directory: '/home/deployftp/'
